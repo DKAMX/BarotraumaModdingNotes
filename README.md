@@ -1,5 +1,6 @@
 # Barotrauma 潜渊症 源代码笔记
-by DKAMX
+by DKAMX  
+收集整理潜渊症的源代码与相关XML参数的含义，方便制作Mod
 
 ## Status Effect enum: ActionType
 源代码：Barotrauma/BarotraumaShared/SharedSource/Enums.cs  
