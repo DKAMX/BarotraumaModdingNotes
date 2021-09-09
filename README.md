@@ -17,15 +17,15 @@ OnContaining, OnContained | 保存状态（放在物品栏，柜子或工具袋�
 OnNotContained | 非保存状态（如仍在地上）  
 OnActive | 左右鼠标同时按下  
 OnFailure | 使用失败（和技能有关，如维修接线盒被电）  
-OnBroken  
+OnBroken | 耐久为零（condition）
 OnFire, InWater, NotInWater | 着火，泡水，没有遇水  
-OnImpact | 收到冲击  
-OnEating  
-OnDamaged  
-OnSevered  
-OnProduceSpawned  
-OnOpen, OnClose  
-OnDeath = OnBroken | 两种状态意思相同，表示耐久为零（condition）  
+OnImpact | 受到冲击  
+OnEating 
+OnDamaged 
+OnSevered 
+OnProduceSpawned 
+OnOpen, OnClose | 舱门，电器等实体的开关状态
+OnDeath = OnBroken | 两种状态意思相同，表示耐久为零
 
 ## Conditional: condition  
 源代码：Barotrauma/BarotraumaShared/SharedSource/StatusEffects/PropertyConditional.cs  
@@ -35,8 +35,8 @@ OnDeath = OnBroken | 两种状态意思相同，表示耐久为零（condition�
 -|-  
 e, eq, equals | Equals，等于  
 ne, neq, notequals, !, !e, !eq, !equals | NotEquals，不等于  
-| LessThan  
-| LessThanEquals  
-| GreaterThan  
-| GreaterThanEquals  
+lt, lessthan | LessThan，小于
+lte, lessthanequals | LessThanEquals，小于等于
+gt, greaterthan| GreaterThan，大于
+gte, greaterthanequals | GreaterThanEquals，大于等于
 | None
