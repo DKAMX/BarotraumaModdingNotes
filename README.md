@@ -2,6 +2,10 @@
 by DKAMX  
 收集整理潜渊症的源代码与相关XML参数的含义，方便制作Mod
 
+# 参与编剧
+如果你不会使用Github，也欢迎你到讨论版（Discussions），直接上传txt文件，我会帮你整合到笔记里。  
+你可以标注自己的Steam ID，我也会写在开头名单里。
+
 ## Status Effect enum: ActionType
 源代码：Barotrauma/BarotraumaShared/SharedSource/Enums.cs  
 
