@@ -4,7 +4,7 @@
 ## 参与编辑
 如果你不会使用Github，也欢迎你到讨论版（Discussions），直接上传txt文件，我会帮你整合到笔记里。  
 
-## Status Effect enum: ActionType
+## Status Effect: ActionType
 源代码：Barotrauma/BarotraumaShared/SharedSource/Enums.cs  
 
 Always，一直  
@@ -14,7 +14,8 @@ OnWearing，穿戴，装备在身体槽位里（非物品栏）
 OnContaining, OnContained，保存状态（放在物品栏，柜子或工具袋里等）  
 OnNotContained，非保存状态（如仍在地上）  
 OnActive，左右鼠标同时按下  
-OnFailure, OnBroken,  
+OnFailure，使用失败（和技能有关，如维修接线盒被电）  
+OnBroken  
 OnFire, InWater, NotInWater，着火，泡水，没有遇水  
 OnImpact，收到冲击  
 OnEating  
@@ -23,3 +24,17 @@ OnSevered
 OnProduceSpawned  
 OnOpen, OnClose,  
 OnDeath = OnBroken，两种状态意思相同，表示耐久为零（condition）  
+
+## Conditional: condition  
+源代码：Barotrauma/BarotraumaShared/SharedSource/StatusEffects/PropertyConditional.cs  
+
+### OperatorType  
+e, eq, equals  
+Equals，等于  
+ne, neq, notequals, !, !e, !eq, !equals  
+NotEquals，不等于  
+LessThan  
+LessThanEquals  
+GreaterThan  
+GreaterThanEquals  
+None
