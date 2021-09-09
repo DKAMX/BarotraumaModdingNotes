@@ -35,8 +35,8 @@ OnDeath = OnBroken | 两种状态意思相同，表示耐久为零（condition�
 -|-  
 e, eq, equals | Equals，等于  
 ne, neq, notequals, !, !e, !eq, !equals | NotEquals，不等于  
-LessThan  
-LessThanEquals  
-GreaterThan  
-GreaterThanEquals  
-None
+| LessThan  
+| LessThanEquals  
+| GreaterThan  
+| GreaterThanEquals  
+| None
