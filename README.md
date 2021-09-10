@@ -4,7 +4,7 @@
 ## 参与编辑
 如果你不会使用Github，也欢迎你到讨论版（Discussions），直接上传txt文件，我会帮你整合到笔记里。  
 
-## Status Effect: ActionType
+## Status Effect: type
 源代码：Barotrauma/BarotraumaShared/SharedSource/Enums.cs  
 
 参数|含义  
