@@ -36,7 +36,7 @@ OnDeath = OnBroken | 两种状态意思相同，表示耐久为零
 e, eq, equals | Equals，等于  
 ne, neq, notequals, !, !e, !eq, !equals | NotEquals，不等于  
 lt, lessthan | LessThan，小于
-lte, lessthanequals | LessThanEquals，小于等于
+lte, lteq, lessthanequals | LessThanEquals，小于等于
 gt, greaterthan| GreaterThan，大于
-gte, greaterthanequals | GreaterThanEquals，大于等于
+gte, gteq, greaterthanequals | GreaterThanEquals，大于等于
 | None
