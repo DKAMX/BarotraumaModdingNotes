@@ -13,7 +13,7 @@
 如果你不会使用Github，也欢迎你到讨论版（Discussions），直接上传txt文件，我会帮你整合到笔记里。  
 
 ## Status Effect: type
-源代码：Barotrauma/BarotraumaShared/SharedSource/Enums.cs  
+源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/Enums.cs
 
 参数|含义  
 -|-  
@@ -36,7 +36,7 @@ OnOpen, OnClose | 舱门，电器等实体的开关状态
 OnDeath = OnBroken | 两种状态意思相同，表示耐久为零
 
 ## Conditional: condition  
-源代码：Barotrauma/BarotraumaShared/SharedSource/StatusEffects/PropertyConditional.cs  
+源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/StatusEffects/StatusEffect.cs
 
 ### OperatorType
 参数|含义  
