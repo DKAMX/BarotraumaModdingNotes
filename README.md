@@ -1,6 +1,14 @@
 # Barotrauma 潜渊症 源代码笔记
 收集整理潜渊症的源代码与相关XML参数的含义，方便制作Mod
 
+## 有用的链接
+潜渊症源代码：https://github.com/Regalis11/Barotrauma  
+
+官方Mod教程：  
+内容包 https://barotraumagame.com/wiki/Content_Packages  
+生物编辑 https://barotraumagame.com/wiki/Content_Packages/Creation  
+目前官方教程比较简单，因此本仓库也计划更新教程和更多的范例。
+
 ## 参与编辑
 如果你不会使用Github，也欢迎你到讨论版（Discussions），直接上传txt文件，我会帮你整合到笔记里。  
 
