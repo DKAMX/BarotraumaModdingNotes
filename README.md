@@ -12,16 +12,32 @@
 ## 参与编辑
 如果你不会使用Github，也欢迎你到讨论版（Discussions），直接上传txt文件，我会帮你整合到笔记里。  
 
+---
+
+**下面是各类标签的解释**
 ## Item
+创建物品，通常和下列其他标签配合使用  
+包括各种定义物品属性，功能的标签  
+
 源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/Items/ItemPrefab.cs
 
-### requiredskill
+### RequiredSkill
 职业技能  
 驾驶（helm），机械维修（Mechanical），电气工程（electrical），医疗（medical），武器操作（weapons）  
 参数|含义  
 -|-  
 identifier|定义需要哪种职业的技能  
 level|数值，技能的等级  
+
+### RequiredItem
+需要的物品，条件逻辑  
+参数|含义
+-|-
+identifier|定义需要的物品
+amount|需要物品的数量，不写则默认为1个
+minCondition|
+maxCondition|
+useCondition|
 
 ## Status Effect: type
 源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/Enums.cs
