@@ -14,13 +14,14 @@
 
 ## Item
 源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/Items/ItemPrefab.cs
+
 ### requiredskill
 职业技能  
-驾驶（helm），机械维修（Mechanical），电气工程（electrical），医疗（medical），武器操作（weapons）
-参数|含义
--|-
-identifier|定义需要哪种职业的技能
-level|数值，技能的等级
+驾驶（helm），机械维修（Mechanical），电气工程（electrical），医疗（medical），武器操作（weapons）  
+参数|含义  
+-|-  
+identifier|定义需要哪种职业的技能  
+level|数值，技能的等级  
 
 ## Status Effect: type
 源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/Enums.cs
