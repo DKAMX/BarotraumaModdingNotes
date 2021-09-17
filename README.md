@@ -40,13 +40,13 @@ XML由若干个元素组成，元素中可以有定义各种功能参数的属�
 
 **下面是各类元素的解释**
 ## Item
-创建物品，通常和下列其他元素配合使用  
-包括各种定义物品各种功能的元素和属性  
+创建物品，通常和下列其他元素配合使用，包括各种定义物品各种功能的元素和属性。  
 
 源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/Items/ItemPrefab.cs
 
 ### RequiredSkill
-职业技能  
+需要的职业技能，条件逻辑  
+原版游戏有5种职业技能分别对应一下5个identifier：  
 驾驶（helm），机械维修（Mechanical），电气工程（electrical），医疗（medical），武器操作（weapons）  
 
 属性|含义  
@@ -64,6 +64,14 @@ amount|需要物品的数量，不写则默认为1个
 minCondition|
 maxCondition|
 useCondition|
+
+### IdCard
+定义该物品具有ID卡的元素，例如打开舱门和保险柜，会读取一个含有IdCard属性的物品的Tags。理论上如果你的其他物品也具有该属性和对应的权限Tag，同样可以用来开门。  
+由于ID卡本质上只有开门这一种功能，没有太大的修改意义，主要还是对Tags进行修改，IdCard内部的属性保持默认即可。
+
+属性|含义
+-|-
+slots|可以装备的槽位，通常是`“Card，Any”`，可以装备在物品栏和人物卡槽里
 
 ## Status Effect: type
 源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/Enums.cs
