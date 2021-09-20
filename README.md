@@ -5,12 +5,20 @@
 潜渊症源代码：https://github.com/Regalis11/Barotrauma  
 
 官方Mod教程：  
-内容包 https://barotraumagame.com/wiki/Content_Packages  
-生物编辑 https://barotraumagame.com/wiki/Content_Packages/Creation  
-目前官方教程比较简单，因此本仓库也计划更新教程和更多的范例。
+内容包：https://barotraumagame.com/wiki/Content_Packages  
+生物编辑：https://barotraumagame.com/wiki/Content_Packages/Creation  
+~~目前官方教程比较简单，因此本仓库也计划更新教程和更多的范例。~~  
+有趣的是官方实际上在Steam创意工坊发布了Mod相关的指南，确实内容丰富，这也对我的笔记整理大有帮助。  
+Mod参考：https://steamcommunity.com/sharedfiles/filedetails/?id=2181462640  
+值得注意的是官方的参考是2020年发布的，并未进行更新，现在新版的游戏增加了很多新的元素和属性，这就需要我们继续研究和完善了。
 
 ## 参与编辑
 如果你不会使用Github，也欢迎你到讨论版（Discussions），直接上传txt文件，我会帮你整合到笔记里。  
+
+当前目标：
+1. 汉化官方的Mod参考
+2. Items相关元素
+3. StatusEffects相关元素
 
 ## 教程
 在开始之前我们需要知道制作mod涉及到对XML的编辑，虽然电脑自带的记事本程序就可以进行编辑，但是一个好的编辑器会带有语法感知，能够将XML的结构用不同颜色标记出来，非常方便。  
@@ -61,9 +69,9 @@ level|数值，技能的等级
 -|-
 identifier|定义需要的物品
 amount|需要物品的数量，不写则默认为1个
-minCondition|
-maxCondition|
-useCondition|
+minCondition|物品耐久低于或等于最小状态会被忽略
+maxCondition|创建物品时的状态
+useCondition|bool
 
 ### IdCard
 定义该物品具有ID卡的元素，例如打开舱门和保险柜，会读取一个含有IdCard属性的物品的Tags。理论上如果你的其他物品也具有该属性和对应的权限Tag，同样可以用来开门。  
