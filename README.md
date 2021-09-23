@@ -39,7 +39,8 @@ XML由若干个元素组成，元素中可以有定义各种功能参数的属�
     <Deconstruct time="10">
         <Item identifier="steel" />
     </Deconstruct>
-这段代码定义了某个物品分解需要10秒钟，并分解得到一个钢筋。
+
+注意开头`<Deconstruct>`和结尾`</Deconstruct>`的格式。这段代码定义了某个物品分解需要10秒钟，并分解得到一个钢筋。
 
 ### 通过范例学习
 游戏内的很多物品本身就是由XML编写的，具体可以在`Barotrauma\Content`中找到，其中`Items`文件夹下就定义了游戏内的各种道具，如武器和工具等。
@@ -48,7 +49,7 @@ XML由若干个元素组成，元素中可以有定义各种功能参数的属�
 
 **下面是各类元素的解释**
 ## Item
-创建物品，通常和下列其他元素配合使用，包括各种定义物品各种功能的元素和属性。  
+创建物品，通常和下列其他元素配合使用，包括各种定义物品各种功能的元素和属性。在以下元素中出现的一些属性也可以直接作为`<Item />`的属性内使用。  
 
 源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/Items/ItemPrefab.cs
 
@@ -67,11 +68,20 @@ level|数值，技能的等级
 
 属性|含义
 -|-
-identifier|定义需要的物品
+item|定义需要的物品，使用物品item属性查找
+identifier|定义需要的物品，使用物品的identifier属性查找
+type|定义需要物品的和当前实体的状态关系，如加工台要求物品必须是摆在加工台内（Contained）
+optional|
 amount|需要物品的数量，不写则默认为1个
 minCondition|物品耐久低于或等于最小状态会被忽略
 maxCondition|创建物品时的状态
 useCondition|bool
+ignoreineditor|
+excludebroken|
+
+#### RelationType: type
+type属性的参数
+参数
 
 ### IdCard
 定义该物品具有ID卡的元素，例如打开舱门和保险柜，会读取一个含有IdCard属性的物品的Tags。理论上如果你的其他物品也具有该属性和对应的权限Tag，同样可以用来开门。  
