@@ -4,13 +4,14 @@
 ## 有用的链接
 潜渊症源代码：https://github.com/Regalis11/Barotrauma  
 
-官方Mod教程：  
+官方Mod教程  
 内容包：https://barotraumagame.com/wiki/Content_Packages  
 生物编辑：https://barotraumagame.com/wiki/Content_Packages/Creation  
 ~~目前官方教程比较简单，因此本仓库也计划更新教程和更多的范例。~~  
-有趣的是官方实际上在Steam创意工坊发布了Mod相关的指南，确实内容丰富，这也对我的笔记整理大有帮助。  
+
+有趣的是官方实际上在Steam创意工坊发布了Mod相关的指南，内容丰富，这也对我的笔记整理大有帮助。  
 Mod参考：https://steamcommunity.com/sharedfiles/filedetails/?id=2181462640  
-值得注意的是官方的参考是2020年发布的，并未进行更新，现在新版的游戏增加了很多新的元素和属性，这就需要我们继续研究和完善了。
+但是要注意的是官方的参考是2020年发布的，并未进行更新，现在的游戏新增了很多元素和属性，这就需要我们继续研究和完善了。
 
 ## 参与编辑
 如果你不会使用Github，也欢迎你到讨论版（Discussions），直接上传txt文件，我会帮你整合到笔记里。  
