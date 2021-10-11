@@ -74,15 +74,36 @@ identifier|定义需要的物品，使用物品的identifier属性查找
 type|定义需要物品的和当前实体的状态关系，如加工台要求物品必须是摆在加工台内（Contained）
 optional|
 amount|需要物品的数量，不写则默认为1个
-minCondition|物品耐久低于或等于最小状态会被忽略
-maxCondition|创建物品时的状态
-useCondition|bool
+mincondition|物品耐久低于或等于最小状态会被忽略
+maxcondition|物品耐久大于最大状态会被忽略
+usecondition|bool
 ignoreineditor|
 excludebroken|
 
 #### RelationType: type
 type属性的参数
-参数
+参数|含义
+-|-
+None|无明确特殊关系
+Contained|需要的物品保存在当前物品内
+Equipped|装备在手上
+Picked|保存在物品栏里
+Container|
+
+### Deconstruct
+定义该物品可以被分解
+属性|含义
+-|-
+time|分解需要的时间，单位：秒
+chooserandom|是否随机选择分解生成的物品（true/false）（参考物品：废料），物品的随机概率由Item属性`commonness`决定
+amount|分解生成物品的数量
+
+#### DeconstructItem
+有一些Item的属性适用于Deconstruct
+属性|含义
+outcondition|分解生成物品的耐久
+copycondition|是否设置分解物品的耐久为生成物品的耐久（true/false）（如，分解一个用了50%的弹药箱会获得50%的铅）
+commonness|该物品生成的概率（0-1）
 
 ### IdCard
 定义该物品具有ID卡的元素，例如打开舱门和保险柜，会读取一个含有IdCard属性的物品的Tags。理论上如果你的其他物品也具有该属性和对应的权限Tag，同样可以用来开门。  
@@ -103,7 +124,7 @@ OnUse, OnSecondaryUse|使用时，按住右键鼠标（左手或右手手持，�
 OnWearing|穿戴，装备在身体槽位里（非物品栏）  
 OnContaining, OnContained|保存状态（放在物品栏，柜子或工具袋里等）  
 OnNotContained|非保存状态（如仍在地上）  
-OnActive|左右鼠标同时按下  
+OnActive|手持物品时  
 OnFailure|使用失败（和技能有关，如维修接线盒被电）  
 OnBroken|耐久为零（condition）
 OnFire, InWater, NotInWater|着火，泡水，没有遇水  
