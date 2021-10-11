@@ -104,6 +104,7 @@ amount|分解生成物品的数量
 有一些Item的属性适用于Deconstruct
 
 属性|含义
+-|-
 outcondition|分解生成物品的耐久
 copycondition|是否设置分解物品的耐久为生成物品的耐久（true/false）（如，分解一个用了50%的弹药箱会获得50%的铅）
 commonness|该物品生成的概率（0-1）
