@@ -82,6 +82,7 @@ excludebroken|
 
 #### RelationType: type
 type属性的参数
+
 参数|含义
 -|-
 None|无明确特殊关系
@@ -92,6 +93,7 @@ Container|
 
 ### Deconstruct
 定义该物品可以被分解
+
 属性|含义
 -|-
 time|分解需要的时间，单位：秒
@@ -100,6 +102,7 @@ amount|分解生成物品的数量
 
 #### DeconstructItem
 有一些Item的属性适用于Deconstruct
+
 属性|含义
 outcondition|分解生成物品的耐久
 copycondition|是否设置分解物品的耐久为生成物品的耐久（true/false）（如，分解一个用了50%的弹药箱会获得50%的铅）
