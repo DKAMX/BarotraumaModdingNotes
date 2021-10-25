@@ -106,7 +106,7 @@ amount|分解生成物品的数量
 属性|含义
 -|-
 outcondition|分解生成物品的耐久
-copycondition|是否设置分解物品的耐久为生成物品的耐久（true/false）（如，分解一个用了50%的弹药箱会获得50%的铅）
+copycondition|是否设置生成物品的耐久为被分解物品的耐久（true/false）（如，分解一个用了50%的弹药箱会获得50%的铅）
 commonness|该物品生成的概率（0-1）
 
 ### IdCard
@@ -130,7 +130,7 @@ OnContaining, OnContained|保存状态（放在物品栏，柜子或工具袋里
 OnNotContained|非保存状态（如仍在地上）  
 OnActive|手持物品时  
 OnFailure|使用失败（和技能有关，如维修接线盒被电）  
-OnBroken|耐久为零（condition）
+OnBroken|耐久为零（condition = 0）
 OnFire, InWater, NotInWater|着火，泡水，没有遇水  
 OnImpact|受到冲击  
 OnEating|
@@ -138,7 +138,7 @@ OnDamaged|
 OnSevered|
 OnProduceSpawned|
 OnOpen, OnClose|舱门，电器等实体的开关状态
-OnDeath = OnBroken|两种状态意思相同，表示耐久为零
+OnDeath|与`OnBroken`意思相同，表示耐久为零
 
 ## Conditional: condition  
 源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/StatusEffects/StatusEffect.cs
@@ -152,4 +152,28 @@ lt, lessthan|LessThan，小于
 lte, lteq, lessthanequals|LessThanEquals，小于等于
 gt, greaterthan|GreaterThan，大于
 gte, gteq, greaterthanequals|GreaterThanEquals，大于等于
-|None
+||None
+
+## EventManagerSettings
+专门用于设置游戏中事件难度的元素  
+
+游戏文件：Barotrauma\Content\EventManagerSettings.xml  
+
+元素|含义
+-|-
+Easy|简单
+Medium|中等
+Hard|困难
+Hellish|地狱
+
+属性|含义
+-|-
+Identifier|
+Name|
+DefaultEventThreshold|默认事件阈值，事件阈值决定了触发新的随机事件需要小于多少密度（intensity）。阈值可能会随事件增长，但在触发新的事件后会重置为默认值。
+EventThresholdIncrease|每秒事件阈值的增长量，即使当前的危机仍未解决也会使事件触发，例如：潜艇在海床上搁浅了
+EventCooldown|事件冷却，触发新事件的最小时间间隔
+MinLevelDifficulty|最小难度等级，大于该值采用该难度等级
+MaxLevelDifficulty|最大难度等级，小于该值采用该难度等级
+||适配难度的控制条，4个难度等级对应不同的难度百分比，例如：官方默认10%是简单难度
+FreezeDurationWhenCrewAway|船员离开时冻结时间，超过50%的非电脑玩家在潜艇外时（出海作业）额外事件不会触发的时间
