@@ -16,12 +16,7 @@ Mod参考：https://steamcommunity.com/sharedfiles/filedetails/?id=2181462640
 但是要注意的是官方的参考是2020年发布的，并未进行更新，现在的游戏新增了很多元素和属性，这就需要我们继续研究和完善了。
 
 ## 参与编辑
-如果你不会使用Github，也欢迎你到讨论版（Discussions），直接上传txt文件，我会帮你整合到笔记里。  
-
-当前目标：
-1. 汉化官方的Mod参考
-2. Items相关元素
-3. StatusEffects相关元素
+如果你不会使用Github，也欢迎你到讨论版（Discussions）提出观点，我会帮你整合到笔记里。  
 
 ## 教程
 在开始之前我们需要知道制作Mod涉及到对XML的编辑，虽然电脑自带的记事本程序就可以进行编辑，但是一个好的编辑器会带有语法感知，能够将XML的结构用不同颜色标记出来，非常方便。  
@@ -43,7 +38,8 @@ XML由若干个元素组成，元素中可以有定义各种功能参数的属�
         <Item identifier="steel" />
     </Deconstruct>
 
-注意开头`<Deconstruct>`和结尾`</Deconstruct>`的格式。这段代码定义了某个物品分解需要10秒钟，并分解得到一个钢筋。
+注意开头`<Deconstruct>`和结尾`</Deconstruct>`的格式。这段代码定义了某个物品分解需要10秒钟，并分解得到一个钢筋。  
+如果你想系统的学习XML可以前往菜鸟教程：https://www.runoob.com/xml/xml-tutorial.html  
 
 ### 通过范例学习
 游戏内的很多物品本身就是由XML编写的，具体可以在`Barotrauma\Content`中找到，其中`Items`文件夹下就定义了游戏内的各种道具，如武器和工具等。
@@ -51,32 +47,19 @@ XML由若干个元素组成，元素中可以有定义各种功能参数的属�
 ---
 
 **下面是各类元素的解释**
-## Conditional: condition  
-源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/StatusEffects/StatusEffect.cs
-
-### OperatorType
-属性|含义  
--|-  
-e, eq, equals|Equals，等于  
-ne, neq, notequals, !, !e, !eq, !equals|NotEquals，不等于  
-lt, lessthan|LessThan，小于
-lte, lteq, lessthanequals|LessThanEquals，小于等于
-gt, greaterthan|GreaterThan，大于
-gte, gteq, greaterthanequals|GreaterThanEquals，大于等于
-||None
 
 ## Contentpackage
 用于定义内容包中含有的数据，例如物品、文本、贴图等。通常用于编写Mod核心文件filelist。  
 
 源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/ContentPackage.cs  
-游戏文件：Barotrauma\Data\ContentPackages\Vanilla 0.9.xml  
+
 
 属性|含义
 -|-
 name|Mod的名称，名称必须和filelist所在的文件夹同名
 path|filelist相对于游戏根目录的路径，参考游戏自带的`ExampleMod`
 corepackage|定义该Mod是否为核心包，例如官方的Vanilla内容包就是一个核心包。
-||因为XML数据的共同性，Vanilla也可以看作是官方出的Mod。核心包只能有一个，并且对包含的内容有强制要求（见`ContentType`），而Mod可以有多个。
+||因为XML数据的结构是统一的，Vanilla也可以看作是官方出的Mod。核心包只能有一个，并且对包含的内容有强制要求（见`ContentType`），而Mod可以有多个。
 gameversion|定义内容包兼容的版本，版本不能向前兼容。例如15.0版本可以打开14.9的Mod，相反则不可以。
 steamworkshopid|创意工坊的id，用于校验当前用户是否订阅了某个Mod，本地测试无需填写。
 installtime|下载次数，用于游戏内工坊页面的展示，本地测试无需填写。
@@ -84,50 +67,55 @@ installtime|下载次数，用于游戏内工坊页面的展示，本地测试�
 ### ContentType
 用于定义内容包可以包含的数据的类型，例如物品、文本、贴图等，都是有效的类型。  
 
-元素|含义
+||标记X的文件类型表示有以下所述的要求|
 -|-
-None|未指定类型，通常用途定义物品贴图，音效等其他数据需要的内容。
+MD5|表示这些类型的文件会进行MD5校验，意味着多人房间中每位玩家必须使用同样的文件。
+Core|表示核心包必须包含这些类型的文件才能生效。
+
+元素|含义|MD5|Core
+-|-|-|-
+None|未指定类型，通常用途定义物品贴图，音效等其他文件用到的内容。
 Submarine|潜艇`.sub`
-Jobs|定义游戏内所有职业的文件，包括NPC使用的隐藏职业，如VIP。
-Item|物品文件，如`Tool.xml`。
+Jobs|定义游戏内所有职业的文件，包括NPC使用的隐藏职业，如VIP。|X|X
+Item|物品文件，如`Tool.xml`。|X|X
 ItemAssembly|物品组件（物品组件指的是ItemAssemblies文件夹下包含的文件）。
-Character|生物的定义文件，如`Human.xml`。
-Structure|定义游戏内使用的装饰类物品，如潜艇墙面的贴图。
-Outpost|前哨站`.sub`
-OutpostModule|前哨战模块`.sub`，用于地图生成的一个模块。
-OutpostConfig|用于生成前哨站布局的参数。
-BeaconStation|信标`.sub`
-NPCSets|NPC的类型以及变种，如海盗船长有海盗船长和海盗王两种。
-Factions|定义游戏内出现的阵营。
-Text|翻译文本，参考`Barotrauma\Content\Texts`下多国语言的文件夹。
-ServerExecutable|
-LocationTypes|定义游戏内地图里出现的地点类型，如城市，自然群落等。
-MapGenerationParameters|用于生成大地图的参数。
-LevelGenerationParameters|用于生成巡回关卡的参数。
-CaveGenerationParameters|用于生成巡回内洞穴的参数。
-LevelObjectPrefabs|
-RandomEvents|定义随机事件的文件，如`randomevents.xml`（刷怪表）和`OutpostEvents.xml`。
-Missions|定义游戏内可以接到的任务。
+Character|生物的定义文件，如`Human.xml`。|X|X
+Structure|定义游戏内使用的装饰类物品，如潜艇墙面的贴图。|X|
+Outpost|前哨站`.sub`|X|
+OutpostModule|前哨战模块`.sub`，用于地图生成的一个模块。|X|
+OutpostConfig|用于生成前哨站布局的参数。|X|
+BeaconStation|信标`.sub`|X|X
+NPCSets|NPC的类型以及变种，如海盗船长有海盗船长和海盗王两种。|X|
+Factions|定义游戏内出现的阵营。|X|X
+Text|翻译文本，参考`Barotrauma\Content\Texts`下的各个文件夹。||X
+ServerExecutable|||X
+LocationTypes|定义游戏内地图里出现的地点类型，如城市，自然群落等。|X|X
+MapGenerationParameters|用于生成大地图的参数。|X|X
+LevelGenerationParameters|用于生成巡回关卡的参数。|X|X
+CaveGenerationParameters|用于生成巡回内洞穴的参数。|X|X
+LevelObjectPrefabs||X|
+RandomEvents|定义随机事件的文件，如`randomevents.xml`（刷怪表）和`OutpostEvents.xml`。||X
+Missions|定义游戏内可以接到的任务。|X|X
 BackgroundCreaturePrefabs|
 Sounds|游戏里各类音效的定义文件，如BGM，碰撞音效等。
-RuinConfig|用于生成遗迹布局的参数。
+RuinConfig|用于生成遗迹布局的参数。|X|X
 Particles|粒子特效的定义文件。
 Decals|
 NPCConversations|NPC对话所使用的文本，和Text类似，每种语言有自己的文件。
-Afflictions|定义游戏内生物可以获得的各种buff，debuff。
+Afflictions|定义游戏内生物可以获得的各种buff，debuff。|X|X
 Tutorials|游戏内置的教程所用的定义文件
-UIStyle|定义游戏内各种物品的交互界面，如文件定义了导航台按钮的布局。
+UIStyle|定义游戏内各种物品的交互界面，如文件定义了导航台按钮的布局。||X
 TraitorMissions|叛徒任务，用于多人的内鬼模式
-EventManagerSettings|用于定义游戏各难度，事件刷新的参数等。
-Orders|定义游戏中人物所使用的所有命令，如操作反应堆，维修机械等。
+EventManagerSettings|用于定义游戏各难度，事件刷新的参数等。||X
+Orders|定义游戏中人物所使用的所有命令，如操作反应堆，维修机械等。|X|X
 SkillSettings|定义游戏中人物进行各种操作可以获得的经验值，如定义治疗队友一次可以获得多少经验值。
-Wreck|沉船`.sub`
-Corpses|尸体，用于沉船的随机生成，定义了尸体携带的物品等。
-WreckAIConfig|沉船AI逻辑。
-UpgradeModules|定义游戏中潜艇可以购买的升级项。
-MapCreature|定义游戏中丘脑的参数。
-EnemySubmarine|海盗潜艇`.sub`
-Talents|定义游戏中各种天赋的具体效果。
+Wreck|沉船`.sub`|X|X
+Corpses|尸体，用于沉船的随机生成，定义了尸体携带的物品等。|X|X
+WreckAIConfig|沉船AI逻辑。|X|X
+UpgradeModules|定义游戏中潜艇可以购买的升级项。|X|X
+MapCreature|定义游戏中丘脑的参数。|X|
+EnemySubmarine|海盗潜艇`.sub`|X|X
+Talents|定义游戏中各种天赋的具体效果。|X|X
 TalentTrees|定义游戏中各大职业的天赋树。
 
 ## EventManagerSettings
@@ -234,6 +222,8 @@ slots|可以装备的槽位，通常是`“Card，Any”`，可以装备在物�
 	</Override>
 
 这段代码会替换官方的鱼叉枪的名字（name）为Potato Gun，通过`identifier`来确定被替换的物品。  
+此外，如果修改了内容代码或是添加了新的功能，原版物品也会有对应的改变。  
+
 使用范例2：  
 也许我们需要替换大量物品，可以在更高层级进行替换。  
 
@@ -249,8 +239,12 @@ slots|可以装备的槽位，通常是`“Card，Any”`，可以装备在物�
 
 这段代码会将`<Items></Items>`下包含的所有物品都进行替换，通过`identifier`来确定被替换的物品。  
 
-## Status Effect: type
-源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/Enums.cs
+## Status Effect
+源代码：  
+https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/StatusEffects/StatusEffect.cs  
+https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/Enums.cs
+
+#### ActionType
 
 属性|含义  
 -|-  
@@ -271,3 +265,18 @@ OnSevered|
 OnProduceSpawned|
 OnOpen, OnClose|舱门，电器等实体的开关状态
 OnDeath|与`OnBroken`意思相同，表示耐久为零
+
+### Conditional: condition  
+源代码：https://github.com/Regalis11/Barotrauma/blob/master/Barotrauma/BarotraumaShared/SharedSource/StatusEffects/PropertyConditional.cs
+
+#### OperatorType
+
+属性|含义  
+-|-  
+e, eq, equals|Equals，等于  
+ne, neq, notequals, !, !e, !eq, !equals|NotEquals，不等于  
+lt, lessthan|LessThan，小于
+lte, lteq, lessthanequals|LessThanEquals，小于等于
+gt, greaterthan|GreaterThan，大于
+gte, gteq, greaterthanequals|GreaterThanEquals，大于等于
+||None
