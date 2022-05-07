@@ -1,3 +1,4 @@
+# 这个项目已经搁置了，请考虑移步至[BaroModDoc-CN](https://github.com/DKAMX/BaroModDoc-CN)
 # Barotrauma 潜渊症 源代码笔记
 收集整理潜渊症的源代码与相关XML元素的含义，方便制作Mod。  
 快速搜索提示：Ctrl+F，输入关键字
